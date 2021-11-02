@@ -1,5 +1,7 @@
 #pragma once
 
+#include "About.h"
+#include "HelpForm.h"
 
 namespace Project3 {
 
@@ -75,7 +77,7 @@ namespace Project3 {
 	private: System::Windows::Forms::Button^ decipBtn;
 	private: System::Windows::Forms::TextBox^ Key2;
 
-	private: System::Windows::Forms::TextBox^ Key1;
+
 
 
 	private: System::Windows::Forms::Button^ button1;
@@ -85,6 +87,13 @@ namespace Project3 {
 	
 
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	
+	private: System::Windows::Forms::ToolStripMenuItem^ îÏðîãðàììåToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ïîìîùüToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ îÏðîãðàììåToolStripMenuItem1;
+	private: System::Windows::Forms::TextBox^ Key1;
+
 
 	private:
 		/// <summary>
@@ -99,7 +108,6 @@ namespace Project3 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->Key1 = (gcnew System::Windows::Forms::TextBox());
 			this->Key2 = (gcnew System::Windows::Forms::TextBox());
 			this->encrypTxt = (gcnew System::Windows::Forms::TextBox());
 			this->decripTxt = (gcnew System::Windows::Forms::TextBox());
@@ -109,100 +117,155 @@ namespace Project3 {
 			this->decipBtn = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->îÏðîãðàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->îÏðîãðàììåToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ïîìîùüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->Key1 = (gcnew System::Windows::Forms::TextBox());
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// Key1
-			// 
-			this->Key1->BackColor = System::Drawing::SystemColors::Window;
-			this->Key1->Location = System::Drawing::Point(139, 73);
-			this->Key1->Name = L"Key1";
-			this->Key1->Size = System::Drawing::Size(100, 20);
-			this->Key1->TabIndex = 0;
 			// 
 			// Key2
 			// 
-			this->Key2->Location = System::Drawing::Point(592, 73);
+			this->Key2->Location = System::Drawing::Point(610, 73);
 			this->Key2->Name = L"Key2";
-			this->Key2->Size = System::Drawing::Size(100, 20);
+			this->Key2->Size = System::Drawing::Size(130, 20);
 			this->Key2->TabIndex = 1;
 			// 
 			// encrypTxt
 			// 
-			this->encrypTxt->Location = System::Drawing::Point(88, 184);
+			this->encrypTxt->Location = System::Drawing::Point(62, 152);
+			this->encrypTxt->Multiline = true;
 			this->encrypTxt->Name = L"encrypTxt";
-			this->encrypTxt->Size = System::Drawing::Size(100, 20);
+			this->encrypTxt->Size = System::Drawing::Size(356, 185);
 			this->encrypTxt->TabIndex = 2;
+			this->encrypTxt->TextChanged += gcnew System::EventHandler(this, &MyForm::encrypTxt_TextChanged);
 			// 
 			// decripTxt
 			// 
-			this->decripTxt->Location = System::Drawing::Point(645, 184);
+			this->decripTxt->Location = System::Drawing::Point(473, 152);
+			this->decripTxt->Multiline = true;
 			this->decripTxt->Name = L"decripTxt";
-			this->decripTxt->Size = System::Drawing::Size(100, 20);
+			this->decripTxt->Size = System::Drawing::Size(353, 185);
 			this->decripTxt->TabIndex = 3;
 			// 
 			// button1
 			// 
+			this->button1->BackColor = System::Drawing::Color::Lime;
 			this->button1->Location = System::Drawing::Point(277, 109);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(141, 37);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"import";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(495, 109);
+			this->button2->BackColor = System::Drawing::Color::Green;
+			this->button2->Location = System::Drawing::Point(701, 109);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(125, 37);
 			this->button2->TabIndex = 5;
 			this->button2->Text = L"export";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// encrypBtn
 			// 
-			this->encrypBtn->Location = System::Drawing::Point(277, 343);
+			this->encrypBtn->BackColor = System::Drawing::Color::Red;
+			this->encrypBtn->Location = System::Drawing::Point(141, 343);
 			this->encrypBtn->Name = L"encrypBtn";
-			this->encrypBtn->Size = System::Drawing::Size(75, 23);
+			this->encrypBtn->Size = System::Drawing::Size(211, 52);
 			this->encrypBtn->TabIndex = 6;
 			this->encrypBtn->Text = L"crypted";
-			this->encrypBtn->UseVisualStyleBackColor = true;
+			this->encrypBtn->UseVisualStyleBackColor = false;
 			this->encrypBtn->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// decipBtn
 			// 
-			this->decipBtn->Location = System::Drawing::Point(506, 343);
+			this->decipBtn->BackColor = System::Drawing::Color::Maroon;
+			this->decipBtn->Location = System::Drawing::Point(563, 343);
 			this->decipBtn->Name = L"decipBtn";
-			this->decipBtn->Size = System::Drawing::Size(75, 23);
+			this->decipBtn->Size = System::Drawing::Size(196, 52);
 			this->decipBtn->TabIndex = 7;
 			this->decipBtn->Text = L"decrypted";
-			this->decipBtn->UseVisualStyleBackColor = true;
+			this->decipBtn->UseVisualStyleBackColor = false;
 			this->decipBtn->Click += gcnew System::EventHandler(this, &MyForm::decipBtn_Click);
 			// 
 			// label1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(57, 73);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(58, 73);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(27, 13);
+			this->label1->Size = System::Drawing::Size(57, 31);
 			this->label1->TabIndex = 8;
-			this->label1->Text = L"clue";
+			this->label1->Text = L"Êëþ÷";
 			// 
 			// label2
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(423, 73);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label2->Location = System::Drawing::Point(469, 73);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(27, 13);
+			this->label2->Size = System::Drawing::Size(70, 31);
 			this->label2->TabIndex = 9;
-			this->label2->Text = L"clue";
+			this->label2->Text = L"Êëþ÷";
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->BackColor = System::Drawing::Color::DarkBlue;
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->îÏðîãðàììåToolStripMenuItem,
+					this->ïîìîùüToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(859, 40);
+			this->menuStrip1->TabIndex = 10;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// îÏðîãðàììåToolStripMenuItem
+			// 
+			this->îÏðîãðàììåToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->îÏðîãðàììåToolStripMenuItem1 });
+			this->îÏðîãðàììåToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 18, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->îÏðîãðàììåToolStripMenuItem->Name = L"îÏðîãðàììåToolStripMenuItem";
+			this->îÏðîãðàììåToolStripMenuItem->Size = System::Drawing::Size(186, 36);
+			this->îÏðîãðàììåToolStripMenuItem->Text = L"Î ïðîãðàììå";
+			this->îÏðîãðàììåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::îÏðîãðàììåToolStripMenuItem_Click);
+			// 
+			// îÏðîãðàììåToolStripMenuItem1
+			// 
+			this->îÏðîãðàììåToolStripMenuItem1->Name = L"îÏðîãðàììåToolStripMenuItem1";
+			this->îÏðîãðàììåToolStripMenuItem1->Size = System::Drawing::Size(243, 36);
+			this->îÏðîãðàììåToolStripMenuItem1->Text = L"î ïðîãðàììå";
+			this->îÏðîãðàììåToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::îÏðîãðàììåToolStripMenuItem1_Click);
+			// 
+			// ïîìîùüToolStripMenuItem
+			// 
+			this->ïîìîùüToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ïîìîùüToolStripMenuItem->Name = L"ïîìîùüToolStripMenuItem";
+			this->ïîìîùüToolStripMenuItem->Size = System::Drawing::Size(128, 36);
+			this->ïîìîùüToolStripMenuItem->Text = L"Ïîìîùü";
+			this->ïîìîùüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ïîìîùüToolStripMenuItem_Click);
+			// 
+			// Key1
+			// 
+			this->Key1->Location = System::Drawing::Point(180, 78);
+			this->Key1->Name = L"Key1";
+			this->Key1->Size = System::Drawing::Size(130, 20);
+			this->Key1->TabIndex = 1;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(841, 403);
+			this->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->ClientSize = System::Drawing::Size(859, 407);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->decipBtn);
@@ -211,10 +274,15 @@ namespace Project3 {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->decripTxt);
 			this->Controls->Add(this->encrypTxt);
-			this->Controls->Add(this->Key2);
 			this->Controls->Add(this->Key1);
+			this->Controls->Add(this->Key2);
+			this->Controls->Add(this->menuStrip1);
+			this->ForeColor = System::Drawing::Color::Black;
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -289,17 +357,31 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	{
 		MessageBox::Show("No data for save", "Attention", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
-	else if (decripTxt->Text == "")
+	else if (decripTxt->Text != "")
 	{
-
 		SaveFileDialog ^sfd = gcnew SaveFileDialog();
 		sfd->Filter = "Text Files|*.txt";
-		if (sfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		
+		if(sfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
-			System:File::WriteAllText(sfd->FileName, decripTxt->Text);
+			System::IO::File::WriteAllText(sfd->FileName, decripTxt->Text);
 		}
 	}
 
+}
+private: System::Void îÏðîãðàììåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+
+}
+private: System::Void encrypTxt_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void îÏðîãðàììåToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	About^ f3 = gcnew About();
+	f3->Show();
+}
+private: System::Void ïîìîùüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	HelpForm^ f2 = gcnew HelpForm();
+	f2->Show();
 }
 };
 }
